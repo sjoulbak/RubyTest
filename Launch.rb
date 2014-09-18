@@ -23,11 +23,11 @@ if !Dir.glob('./Save/*.cfg').empty? == true
 		if saveLoad == '1'
 			#Create new game#
 			clear
-			puts
 			puts 'How do you want to name your save?'
 			saveName = gets.chomp
 			saveNew = File.open("./Save/"+saveName+".cfg","w")
 			load saveNew
+			write_at_new(saveNew, 1, 'map = 00.rb')
 			break
 		elsif saveLoad == '2'
 			#Load game#
@@ -61,14 +61,14 @@ else
 		if saveLoad == '1'
 			#Create new game#
 			clear
-			puts
 			puts 'How do you want to name your save?'
 			saveName = gets.chomp
-			saveNew = File.open("./Save/"+saveName+".cfg","w")
+			saveNew = File.open("./Save/"+saveName+".cfg","w") 
 			load saveNew
+			write_at_new(saveNew, 1, 'map = 00.rb')
 			break
 		end
 	end
 end
-write_at(saveNew, 1, 'map = 00.rb')
+puts map
 # show all saves! Dir["./Save/*.save"].each {|save| puts "Load "+save }
